@@ -1,0 +1,149 @@
+---
+const features = [
+  {
+    title: 'Section-based targeting',
+    body: 'Measures the loudest sliding window (default 20 s / 5 s hop), not whole-file average or playback-time trim.',
+    icon: 'waveform',
+  },
+  {
+    title: 'True-peak ceiling',
+    body: 'Default -1.0 dBTP. When level and peak conflict, gain is reduced or limiter-assisted processing applies.',
+    icon: 'peak',
+  },
+  {
+    title: 'Clean gain or limiter-assisted',
+    body: 'Linear gain when the ceiling allows. FabFilter Pro-L 2 with a capped max reduction when peak control is needed.',
+    icon: 'limiter',
+  },
+  {
+    title: 'Library analysis',
+    body: 'Recursive scan with per-track LUFS, dBTP, suggested gain, limiter estimate, and render eligibility.',
+    icon: 'analyze',
+  },
+  {
+    title: '_DG outputs',
+    body: 'Non-destructive copies beside sources or under a separate root. Preserve original format or force AIFF/MP3.',
+    icon: 'output',
+  },
+  {
+    title: 'Library Tuning',
+    body: 'Profile your library and get recommended targets, window/hop, thresholds, and ceiling settings.',
+    icon: 'tune',
+  },
+  {
+    title: 'Verification',
+    body: 'Post-render re-measurement, loudness tags stripped, optional CSV report and session log.',
+    icon: 'verify',
+  },
+  {
+    title: 'Bass-aware trim',
+    body: 'On positive gain only: low-band energy can reduce boost on bass-heavy sections.',
+    icon: 'bass',
+  },
+];
+---
+
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Features</p>
+      <h2>Your targets, your call</h2>
+      <p class="lead">
+        Set the LUFS band, ceiling, and gain mode. Inspect per-track numbers before anything renders.
+      </p>
+    </div>
+    <div class="card-grid card-grid-2">
+      {
+        features.map((feature) => (
+          <article class="glass-card feature-card reveal">
+            <div class="feature-icon" aria-hidden="true">
+              {feature.icon === 'waveform' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M2 12h2l2-8 4 16 4-16 2 8h2" />
+                </svg>
+              )}
+              {feature.icon === 'peak' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 18V8l4 4 4-8 4 12 4-6v8" />
+                </svg>
+              )}
+              {feature.icon === 'limiter' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="4" y="6" width="16" height="12" rx="2" />
+                  <path d="M8 14V10M12 16V8M16 13V11" />
+                </svg>
+              )}
+              {feature.icon === 'analyze' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <circle cx="11" cy="11" r="7" />
+                  <path d="M16 16l4 4" />
+                </svg>
+              )}
+              {feature.icon === 'output' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
+                  <path d="M14 3v6h6" />
+                </svg>
+              )}
+              {feature.icon === 'tune' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M4 6h16M4 12h10M4 18h6" />
+                  <circle cx="18" cy="12" r="2" />
+                  <circle cx="12" cy="18" r="2" />
+                </svg>
+              )}
+              {feature.icon === 'verify' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="9" />
+                </svg>
+              )}
+              {feature.icon === 'bass' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M6 18c0-6 3-10 6-10s6 4 6 10" />
+                  <path d="M12 8V4" />
+                </svg>
+              )}
+            </div>
+            <h3>{feature.title}</h3>
+            <p class="text-muted">{feature.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .feature-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg-main);
+    margin-bottom: var(--space-2);
+  }
+
+  .feature-card p {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+
+  .feature-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: var(--space-4);
+    color: var(--accent);
+    background: var(--accent-dim);
+    border-radius: var(--radius-sm);
+    border: 1px solid rgb(176 220 232 / 15%);
+  }
+
+  .feature-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+</style>

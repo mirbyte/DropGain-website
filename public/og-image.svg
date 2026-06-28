@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-label="DropGain">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#1e1e1e"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <path d="M80 480 Q200 420 320 460 T560 440 T800 470 T1120 450" fill="none" stroke="#b0dce8" stroke-width="2" opacity="0.35"/>
+  <path d="M80 500 Q250 440 400 490 T700 470 T1000 500 T1120 480" fill="none" stroke="#87d6a3" stroke-width="1.5" opacity="0.25"/>
+  <rect x="80" y="80" width="420" height="200" rx="12" fill="#262626" stroke="#3e3e3e" stroke-width="1"/>
+  <text x="110" y="130" fill="#b0dce8" font-family="Consolas, monospace" font-size="18" font-weight="600">LUFS</text>
+  <text x="110" y="170" fill="#f0f0f0" font-family="Consolas, monospace" font-size="36" font-weight="700">-7.6</text>
+  <rect x="110" y="185" width="280" height="6" rx="3" fill="#3e3e3e"/>
+  <rect x="110" y="185" width="200" height="6" rx="3" fill="#b0dce8"/>
+  <text x="110" y="230" fill="#87d6a3" font-family="Consolas, monospace" font-size="18" font-weight="600">dBTP</text>
+  <text x="110" y="260" fill="#f0f0f0" font-family="Consolas, monospace" font-size="28" font-weight="700">-1.0</text>
+  <text x="560" y="280" fill="#b0dce8" font-family="system-ui, sans-serif" font-size="72" font-weight="700" text-anchor="middle" filter="url(#glow)">DropGain</text>
+  <text x="560" y="340" fill="#909090" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">Section loudness prep for DJs</text>
+  <text x="560" y="400" fill="#8ec8d6" font-family="Consolas, monospace" font-size="20" text-anchor="middle">mirbyte.github.io/DropGain-website</text>
+</svg>

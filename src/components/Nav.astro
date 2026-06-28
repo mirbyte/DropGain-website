@@ -1,0 +1,202 @@
+---
+const repoUrl = 'https://github.com/mirbyte/DropGain';
+---
+
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="logo" href="#top">
+      DROPGAIN
+    </a>
+    <nav aria-label="Primary">
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-menu" data-nav-toggle>
+        <span class="sr-only">Menu</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+          <path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </button>
+      <ul class="nav-links" id="nav-menu" data-nav-menu>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#workflow">Workflow</a></li>
+        <li><a href="#requirements">Requirements</a></li>
+        <li>
+          <a class="btn btn-primary nav-cta" href={repoUrl} target="_blank" rel="noopener noreferrer">
+            GitHub
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('[data-nav-toggle]');
+  const menu = document.querySelector('[data-nav-menu]');
+
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('is-open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      menu.classList.remove('is-open');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    isolation: isolate;
+    background: transparent;
+    border-bottom: 1px solid var(--border-glass);
+  }
+
+  .nav::before,
+  .nav::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  /* Blur layer (behind tint) */
+  .nav::before {
+    z-index: -2;
+    backdrop-filter: blur(40px) brightness(0.88);
+    -webkit-backdrop-filter: blur(40px) brightness(0.88);
+    mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      rgb(0 0 0 / 90%) 20%,
+      rgb(0 0 0 / 60%) 45%,
+      rgb(0 0 0 / 40%) 70%,
+      rgb(0 0 0 / 32%) 100%
+    );
+    -webkit-mask-image: linear-gradient(
+      to bottom,
+      black 0%,
+      rgb(0 0 0 / 90%) 20%,
+      rgb(0 0 0 / 60%) 45%,
+      rgb(0 0 0 / 40%) 70%,
+      rgb(0 0 0 / 32%) 100%
+    );
+  }
+
+  /* Opaque tint on top of blur — blur alone won't hide readable text */
+  .nav::after {
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgb(26 26 26 / 88%) 0%,
+      rgb(26 26 26 / 62%) 45%,
+      rgb(26 26 26 / 38%) 100%
+    );
+  }
+
+  .nav-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    min-height: 64px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--fg-main);
+    letter-spacing: 0.02em;
+  }
+
+  .logo:hover {
+    color: var(--accent);
+  }
+
+  .nav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: rgb(255 255 255 / 4%);
+    color: var(--fg-main);
+    cursor: pointer;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-6);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-links a:not(.btn) {
+    color: var(--fg-muted);
+    font-size: 0.9375rem;
+    font-weight: 500;
+  }
+
+  .nav-links a:not(.btn):hover {
+    color: var(--fg-main);
+  }
+
+  .nav-cta {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    border-radius: 9999px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-toggle {
+      display: inline-flex;
+    }
+
+    .nav-links {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: var(--space-4);
+      background: rgb(30 30 30 / 65%);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
+    }
+
+    .nav-links.is-open {
+      display: flex;
+    }
+
+    .nav-links li {
+      padding-block: var(--space-2);
+    }
+
+    .nav-cta {
+      width: 100%;
+      justify-content: center;
+    }
+
+    nav {
+      position: relative;
+    }
+  }
+</style>

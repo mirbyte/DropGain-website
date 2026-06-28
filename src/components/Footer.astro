@@ -1,0 +1,82 @@
+---
+const year = new Date().getFullYear();
+const appRepo = 'https://github.com/mirbyte/DropGain';
+const siteRepo = 'https://github.com/mirbyte/DropGain-website';
+---
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-brand">
+      <span class="footer-dot" aria-hidden="true" />
+      DropGain
+    </p>
+    <p class="text-small text-muted">
+      © {year} mirbyte · <a href={`${appRepo}/blob/main/LICENSE`}>AGPL-3.0</a>
+    </p>
+    <ul class="footer-links">
+      <li><a href={appRepo} target="_blank" rel="noopener noreferrer">App repo</a></li>
+      <li><a href={siteRepo} target="_blank" rel="noopener noreferrer">Site repo</a></li>
+    </ul>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--border);
+    padding-block: var(--space-8);
+    background: var(--bg-field);
+  }
+
+  .footer-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-4) var(--space-8);
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin: 0;
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .footer-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+  }
+
+  .footer-inner p {
+    margin: 0;
+  }
+
+  .footer-inner p a {
+    color: var(--fg-muted);
+  }
+
+  .footer-inner p a:hover {
+    color: var(--accent);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--space-4);
+    list-style: none;
+    margin: 0 0 0 auto;
+    padding: 0;
+  }
+
+  .footer-links a {
+    font-size: 0.875rem;
+    color: var(--fg-muted);
+  }
+
+  .footer-links a:hover {
+    color: var(--accent);
+  }
+</style>

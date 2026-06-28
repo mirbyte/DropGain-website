@@ -1,0 +1,99 @@
+---
+const required = [
+  { name: 'Windows', note: 'Tested by the author. macOS/Linux may work but are untested.' },
+  { name: 'Python 3', note: 'customtkinter, numpy, scipy, pyloudnorm, mutagen, pedalboard, Pillow' },
+  { name: 'FFmpeg / ffprobe', note: 'Must be on PATH' },
+];
+
+const optional = [
+  {
+    name: 'FabFilter Pro-L 2 (VST3)',
+    note: 'Required for limiter-assisted mode. Clean gain and analysis work without it. More limiters will be supported in future updates.',
+  },
+];
+---
+
+<section class="section" id="requirements">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Requirements</p>
+      <h2>What you need to run it</h2>
+      <p class="lead">
+        Launch <code>main.pyw</code> from the app repo. Use Preferences to validate Pro-L 2 and system dependencies before batch render.
+      </p>
+    </div>
+    <div class="card-grid card-grid-2">
+      <article class="glass-card reveal">
+        <h3>Required</h3>
+        <ul class="req-list">
+          {
+            required.map((item) => (
+              <li>
+                <strong>{item.name}</strong>
+                <span>{item.note}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </article>
+      <article class="glass-card reveal">
+        <h3>For limiter-assisted mode</h3>
+        <ul class="req-list">
+          {
+            optional.map((item) => (
+              <li>
+                <strong>{item.name}</strong>
+                <span>{item.note}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <p class="text-small text-muted dj-note">
+          Disable playback auto gain in Rekordbox, Serato, TRAKTOR, and VirtualDJ when loading _DG exports.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<style>
+  .req-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .req-list li {
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .req-list li:last-child {
+    border-bottom: none;
+  }
+
+  .req-list strong {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--fg-main);
+    margin-bottom: var(--space-1);
+  }
+
+  .req-list span {
+    font-size: 0.9375rem;
+    color: var(--fg-muted);
+  }
+
+  .dj-note {
+    margin: var(--space-4) 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+  }
+
+  code {
+    color: var(--accent);
+  }
+</style>

@@ -1,0 +1,61 @@
+---
+import '@fontsource-variable/space-grotesk';
+import '@fontsource-variable/cascadia-mono';
+
+const {
+  title = 'DropGain — section loudness prep for DJs',
+  description = 'Section loudness prep for DJs. Set your LUFS band and true-peak ceiling, review per-track numbers, and choose how loud to go — not a one-size-fits-all loudness war preset.',
+} = Astro.props;
+
+const siteUrl = Astro.site?.href ?? 'https://mirbyte.github.io';
+const baseUrl = new URL(import.meta.env.BASE_URL, siteUrl).href;
+const canonical = new URL(Astro.url.pathname, baseUrl).href;
+const ogImage = new URL('og-image.svg', baseUrl).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#1a1a1a" />
+    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="wave-bg" aria-hidden="true">
+      <canvas data-wave-bg class="wave-bg-canvas"></canvas>
+    </div>
+    <slot />
+    <script>
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.documentElement.classList.add('reduce-motion');
+      }
+    </script>
+    <script type="module">
+      import { initMotion } from '../scripts/reveal.js';
+      import { initAudioViz } from '../scripts/audio-viz.js';
+
+      initMotion();
+      initAudioViz();
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>

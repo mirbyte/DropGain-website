@@ -1,0 +1,77 @@
+---
+const repoUrl = 'https://github.com/mirbyte/DropGain';
+---
+
+<section class="section cta-section">
+  <div class="container reveal">
+    <div class="cta-card glass">
+      <div class="cta-glow" aria-hidden="true" />
+      <div class="cta-copy">
+        <h2>Prep your library. Keep your originals.</h2>
+        <p>
+          Pick your targets, review the table, render <code>_DG</code> copies when you're ready.
+          Free, open source, and yours to inspect.
+        </p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">
+          Get DropGain
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta-section {
+    padding-bottom: var(--space-16);
+  }
+
+  .cta-card {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: linear-gradient(135deg, rgb(36 51 56 / 80%), rgb(38 38 38 / 90%));
+    border-color: rgb(176 220 232 / 20%);
+    box-shadow: var(--glow-accent-sm);
+  }
+
+  .cta-glow {
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(ellipse, rgb(176 220 232 / 12%), transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-copy {
+    position: relative;
+    max-width: 36rem;
+  }
+
+  .cta-copy h2 {
+    margin-bottom: var(--space-3);
+  }
+
+  .cta-copy p {
+    margin: 0;
+    color: var(--fg-muted);
+  }
+
+  .cta-copy code {
+    color: var(--accent);
+  }
+
+  .cta-actions {
+    position: relative;
+    flex-shrink: 0;
+  }
+</style>
