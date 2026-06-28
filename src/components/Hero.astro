@@ -3,31 +3,30 @@ import { Image } from 'astro:assets';
 import uiLaunch from '../assets/screenshots/ui-launch.png';
 
 const repoUrl = 'https://github.com/mirbyte/DropGain';
-const releasesUrl = 'https://github.com/mirbyte/DropGain/releases';
 ---
 
 <section class="hero section" id="top">
   <div class="container hero-grid">
     <div class="hero-copy reveal">
-      <p class="section-label font-ui">Open source · Windows · WIP</p>
+      <p class="section-label font-ui">Early access · Open source · Windows</p>
       <h1>
         Loudness prep for the <span class="hero-accent">drop</span>, not the average.
       </h1>
       <p class="lead">
-        Section-based analysis, true-peak control, and <code>_DG</code> copies — with targets you set,
-        not a one-click promise to win the loudness war. Choose how loud to go, or whether to go at all.
+        Analyze the loudest sections of your tracks, set your own LUFS target and true-peak ceiling,
+        and render safe <code>_DG</code> copies without touching your originals.
+      </p>
+      <p class="text-small text-muted audience-note">
+        For DJs comfortable running from source while builds and limiter support expand.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">
           View on GitHub
         </a>
-        <a class="btn btn-secondary" href={releasesUrl} target="_blank" rel="noopener noreferrer">
-          Releases
+        <a class="btn btn-secondary" href="#setup">
+          Setup guide
         </a>
       </div>
-      <p class="text-small text-muted status-note">
-        Still in active development. Test on a copy of your library first.
-      </p>
     </div>
 
     <div class="hero-visual reveal">
@@ -115,8 +114,8 @@ const releasesUrl = 'https://github.com/mirbyte/DropGain/releases';
     margin-bottom: var(--space-4);
   }
 
-  .status-note {
-    margin: 0;
+  .audience-note {
+    margin: 0 0 var(--space-6);
   }
 
   .hero-visual {

@@ -278,6 +278,36 @@ code {
   font-size: 0.875rem;
 }
 
+.callout-warn {
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid rgb(212 184 120 / 35%);
+  background: linear-gradient(135deg, rgb(212 184 120 / 12%), rgb(212 184 120 / 5%));
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 4%);
+}
+
+.callout-warn-title {
+  margin: 0 0 var(--space-2);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--warn);
+  letter-spacing: -0.01em;
+}
+
+.callout-warn-body {
+  margin: 0;
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--fg-muted);
+}
+
+.callout-warn code {
+  color: var(--warn);
+  background: rgb(212 184 120 / 12%);
+  padding: 0.1em 0.35em;
+  border-radius: 4px;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;

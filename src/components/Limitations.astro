@@ -1,0 +1,59 @@
+---
+const limitations = [
+  {
+    title: 'Source install only',
+    body: 'No Windows installer or packaged executable yet. Clone the repo, install dependencies, and run from source.',
+  },
+  {
+    title: 'Active development',
+    body: 'Bugs are still possible. Test exports on copies of your library, not your only masters.',
+  },
+  {
+    title: 'Pro-L 2 for limiter mode',
+    body: 'Limiter-assisted processing currently requires FabFilter Pro-L 2 (VST3). Clean gain and full analysis work without it.',
+  },
+  {
+    title: 'UI still evolving',
+    body: 'The app is functional but not polished. Expect rough edges while the interface improves.',
+  },
+];
+---
+
+<section class="section" id="limitations">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="section-label">Current limitations</p>
+      <h2>What to expect right now</h2>
+      <p class="lead">
+        DropGain is early access — useful if you want section-based loudness prep and can run a Python app from source.
+        Not ready for casual install-and-go use yet.
+      </p>
+    </div>
+    <div class="card-grid card-grid-2">
+      {
+        limitations.map((item) => (
+          <article class="glass-card limitation-card reveal">
+            <h3>{item.title}</h3>
+            <p class="text-muted">{item.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .limitation-card h3 {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg-main);
+    margin-bottom: var(--space-2);
+  }
+
+  .limitation-card p {
+    margin: 0;
+    font-size: 0.9375rem;
+  }
+</style>

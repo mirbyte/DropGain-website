@@ -1,5 +1,6 @@
 ---
 const repoUrl = 'https://github.com/mirbyte/DropGain';
+const issuesUrl = 'https://github.com/mirbyte/DropGain/issues';
 ---
 
 <section class="section cta-section">
@@ -7,15 +8,18 @@ const repoUrl = 'https://github.com/mirbyte/DropGain';
     <div class="cta-card glass">
       <div class="cta-glow" aria-hidden="true" />
       <div class="cta-copy">
-        <h2>Prep your library. Keep your originals.</h2>
+        <h2>Try it early</h2>
         <p>
-          Pick your targets, review the table, render <code>_DG</code> copies when you're ready.
-          Free, open source, and yours to inspect.
+          Clone the repo, set your targets, review the analysis table, and render <code>_DG</code> copies
+          when you are ready.
         </p>
       </div>
       <div class="cta-actions">
         <a class="btn btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">
-          Get DropGain
+          View on GitHub
+        </a>
+        <a class="btn btn-secondary" href={issuesUrl} target="_blank" rel="noopener noreferrer">
+          Report an issue
         </a>
       </div>
     </div>
@@ -72,6 +76,9 @@ const repoUrl = 'https://github.com/mirbyte/DropGain';
 
   .cta-actions {
     position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
     flex-shrink: 0;
   }
 </style>
