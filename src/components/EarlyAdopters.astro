@@ -16,13 +16,17 @@ const emptySlots = 3;
           actually use DropGain in their prep workflow.
         </p>
         <p class="text-muted adopters-note">
-          If that is you, start a <span class="text-accent">discussion</span> or <span class="text-accent">email me</span> with a short note or before/after result.
-          My email is on <a href={profileUrl} target="_blank" rel="noopener noreferrer">my GitHub profile</a>.
+          If that is you, drop me an <span class="text-accent">email</span> or start a <span class="text-accent">discussion</span> with a short note or before/after result.
           Good feedback may earn a name here later.
         </p>
-        <a class="btn btn-secondary adopters-cta" href={discussionsUrl} target="_blank" rel="noopener noreferrer">
-          Start a discussion
-        </a>
+        <div class="adopters-cta-row">
+          <a id="email-btn" class="btn btn-secondary adopters-cta" href="#" data-em="bWlyYnl0ZUBwcm90b24ubWU=">
+            Email me
+          </a>
+          <a class="btn btn-ghost adopters-cta adopters-cta-email" href={discussionsUrl} target="_blank" rel="noopener noreferrer">
+            Start a discussion
+          </a>
+        </div>
       </div>
 
       <div class="adopters-slots" aria-label="Future early adopters">
@@ -42,6 +46,15 @@ const emptySlots = 3;
     </div>
   </div>
 </section>
+
+<script>
+  const btn = document.getElementById('email-btn');
+  if (btn) {
+    const em = btn.dataset.em;
+    btn.href = 'mailto:' + atob(em);
+    btn.removeAttribute('data-em');
+  }
+</script>
 
 <style>
   .adopters-card {
@@ -88,9 +101,29 @@ const emptySlots = 3;
     color: var(--accent);
   }
 
+  .adopters-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    align-items: center;
+  }
+
   .adopters-cta {
     font-size: 0.875rem;
     padding: 0.625rem 1.25rem;
+  }
+
+  .adopters-cta-email {
+    border: 1px solid var(--border-glass);
+    color: var(--fg-muted);
+    background: transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .adopters-cta-email:hover {
+    color: var(--accent);
+    border-color: rgb(176 220 232 / 40%);
+    background: var(--accent-dim);
   }
 
   .adopters-slots {
