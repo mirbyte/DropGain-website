@@ -344,3 +344,44 @@ html.reduce-motion .reveal {
     transition: none;
   }
 }
+
+/* ── Custom cursor gate ──────────────────────────────────────────────────────
+   Applied only when JS adds .custom-cursor to <html> (fine pointer, non-touch).
+   Exceptions restore meaningful native cursors where users rely on them.
+   ──────────────────────────────────────────────────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  /* Hide native cursor for the custom follower */
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: none !important;
+  }
+
+  /* Restore text cursor — critical for usability */
+  html.custom-cursor input,
+  html.custom-cursor textarea,
+  html.custom-cursor [contenteditable="true"],
+  html.custom-cursor [contenteditable=""],
+  html.custom-cursor select {
+    cursor: auto !important;
+  }
+
+  /* Restore resize cursors on scrollbars / resizable elements */
+  html.custom-cursor ::-webkit-scrollbar {
+    cursor: default !important;
+  }
+
+  /* Restore disabled state */
+  html.custom-cursor [disabled],
+  html.custom-cursor [aria-disabled="true"] {
+    cursor: not-allowed !important;
+  }
+}
+
+/* If user prefers reduced motion, disable custom cursor entirely —
+   JS won't show the ring, but CSS also restores the native pointer */
+@media (prefers-reduced-motion: reduce) {
+  html.custom-cursor,
+  html.custom-cursor * {
+    cursor: auto !important;
+  }
+}
