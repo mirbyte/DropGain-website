@@ -4,3 +4,12 @@ dist/
 .DS_Store
 .cursorignore
 commands.txt
+TODO.txt
+# Added by code-review-graph
+.code-review-graph/
+.github/code-review-graph.instruction.md
+.cursorrules
+.mcp.json
+.opencode.json
+AGENTS.md
+.cursor/mcp.json
