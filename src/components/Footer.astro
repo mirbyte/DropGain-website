@@ -7,8 +7,7 @@ const siteRepo = 'https://github.com/mirbyte/DropGain-website';
 <footer class="footer">
   <div class="container footer-inner">
     <p class="footer-brand">
-      <span class="footer-dot" aria-hidden="true" />
-      DropGain
+      DROPGAIN
     </p>
     <p class="text-small text-muted">
       © {year} mirbyte · <a href={`${appRepo}/blob/main/LICENSE`}>AGPL-3.0</a>
@@ -39,16 +38,11 @@ const siteRepo = 'https://github.com/mirbyte/DropGain-website';
     align-items: center;
     gap: var(--space-2);
     margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 1.125rem;
     font-weight: 700;
-    color: var(--accent);
-  }
-
-  .footer-dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--accent);
-    box-shadow: 0 0 6px var(--accent);
+    color: var(--fg-main);
+    letter-spacing: 0.02em;
   }
 
   .footer-inner p {

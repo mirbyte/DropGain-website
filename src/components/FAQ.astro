@@ -1,0 +1,256 @@
+---
+const discussionsUrl = 'https://github.com/mirbyte/DropGain/discussions';
+
+const items = [
+  {
+    question: 'Will it ruin dynamics or sound quality?',
+    answer:
+      'Clean gain mode applies linear level change when the ceiling allows. Limiter-assisted mode (optional) only applies capped reduction when peak control is needed. You set the targets; DropGain does not master your library in one click.',
+  },
+  {
+    question: 'How is this different from auto-gain in my DJ software?',
+    answer:
+      'DJ auto-gain normalizes per track at playback time and can fight levels you set in prep. DropGain bakes levels into <code>_DG</code> files using section-based LUFS. Disable playback auto-gain when loading <code>_DG</code> exports in Rekordbox, Serato, TRAKTOR, VirtualDJ, and similar software.',
+  },
+  {
+    question: 'Do I still need to use my gain knobs?',
+    answer:
+      'DropGain gets tracks into a consistent ballpark before the gig. You will still ride faders and trim for the room, transitions, and taste.',
+  },
+  {
+    question: 'What audio formats does DropGain support?',
+    answer:
+      'DropGain reads and writes WAV, AIFF, MP3, and FLAC. The output format can match the source or be forced to AIFF or MP3 in Preferences.',
+  },
+  {
+    question: 'Do I need FabFilter Pro-L 2 or LoudMax installed?',
+    answer:
+      'Only for limiter-assisted mode. Clean gain, full library analysis, and the review table work without it. You can use either LoudMax (free) or Pro-L 2 (has 30-day free trial).',
+  },
+  {
+    question: 'Is there an installer? What do I need?',
+    answer:
+      'Not yet. DropGain runs from source on Windows: Python, FFmpeg on PATH, and the dependencies in the repo README. macOS and Linux may work but are untested.',
+  },
+  {
+    question: 'Is DropGain free?',
+    answer:
+      'Yes. It is open source under AGPL-3.0. No paid tier, no account, and no subscription.',
+  },
+  {
+    question: 'How were loudness measurements validated during development?',
+    answer:
+      'LUFS and true-peak readouts were cross-checked against Youlean Loudness Meter 2 and iZotope Insight 2. Neither is required to run DropGain.',
+  },
+];
+---
+
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-header section-header-center reveal">
+      <p class="section-label">Questions &amp; answers</p>
+      <h2>Common questions</h2>
+    </div>
+
+    <div class="faq-panel">
+      {
+        items.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-icon" aria-hidden="true" />
+              <span class="faq-question-text">{item.question}</span>
+            </summary>
+            <div class="faq-answer">
+              <div class="faq-answer-inner text-muted">
+                <p set:html={item.answer} />
+              </div>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+    <p class="faq-support text-muted reveal">
+      Cannot find the answer?
+      <a href={discussionsUrl} target="_blank" rel="noopener noreferrer"> Start a discussion </a>
+      or
+      <a id="faq-email" href="#" data-em="bWlyYnl0ZUBwcm90b24ubWU="> email me</a>.
+    </p>
+  </div>
+</section>
+
+<script>
+  const emailLink = document.getElementById('faq-email');
+  if (emailLink) {
+    const em = emailLink.dataset.em;
+    if (em) {
+      emailLink.href = `mailto:${atob(em)}`;
+      emailLink.removeAttribute('data-em');
+    }
+  }
+
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!prefersReduced) {
+    document.querySelectorAll('.faq-item').forEach((item) => {
+      const summary = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (!summary || !answer) return;
+
+      const onClose = (e) => {
+        if (e.propertyName !== 'height') return;
+        answer.removeEventListener('transitionend', onClose);
+        answer.style.height = '';
+        item.open = false;
+      };
+      const onOpen = (e) => {
+        if (e.propertyName !== 'height') return;
+        answer.removeEventListener('transitionend', onOpen);
+        answer.style.height = '';
+      };
+
+      summary.addEventListener('click', (e) => {
+        e.preventDefault();
+        answer.removeEventListener('transitionend', onClose);
+        answer.removeEventListener('transitionend', onOpen);
+        if (item.open) {
+          const h = answer.scrollHeight;
+          answer.style.height = `${h}px`;
+          void answer.offsetHeight;
+          answer.style.height = '0px';
+          answer.addEventListener('transitionend', onClose);
+        } else {
+          item.open = true;
+          const h = answer.scrollHeight;
+          answer.style.height = '0px';
+          void answer.offsetHeight;
+          answer.style.height = `${h}px`;
+          answer.addEventListener('transitionend', onOpen);
+        }
+      });
+    });
+  }
+</script>
+
+<style>
+  .section-header-center {
+    max-width: 36rem;
+    margin-inline: auto;
+    margin-bottom: var(--space-12);
+    text-align: center;
+  }
+
+  .faq-panel {
+    padding: 0;
+    background: rgb(38 38 38 / 65%);
+    border: 1px solid var(--border-glass);
+    border-radius: var(--radius-md);
+    overflow: visible;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    overflow: visible;
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+  }
+
+  .faq-question {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-5);
+    padding: var(--space-3) var(--space-6);
+    font-family: var(--font-sans);
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--fg-main);
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    transition: color 0.2s ease, background-color 0.3s ease;
+  }
+
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-question-text {
+    flex: 1;
+    line-height: 1.45;
+  }
+
+  .faq-icon {
+    position: relative;
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.25rem;
+    color: var(--accent);
+  }
+
+  .faq-icon::before,
+  .faq-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0.75rem;
+    height: 1.5px;
+    background: currentColor;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+  }
+
+  .faq-item[open] .faq-icon::after {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+
+  .faq-answer {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .faq-item[open] .faq-answer {
+    height: auto;
+  }
+
+  .faq-answer-inner {
+    padding: var(--space-3) var(--space-6) var(--space-6) calc(var(--space-6) + 1.25rem + var(--space-5));
+  }
+
+  .faq-answer p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .faq-answer :global(code) {
+    color: var(--accent);
+    background: var(--accent-dim);
+    padding: 0.1em 0.35em;
+    border-radius: 4px;
+    font-size: 0.875em;
+  }
+
+  .faq-item[open] .faq-question {
+    color: var(--accent);
+    background: rgb(176 220 232 / 4%);
+  }
+
+  .faq-support {
+    margin: var(--space-8) auto 0;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  .faq-support a {
+    color: var(--accent);
+  }
+</style>
