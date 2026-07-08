@@ -28,11 +28,6 @@ const items = [
       'Only for limiter-assisted mode. Clean gain, full library analysis, and the review table work without it. You can use either LoudMax (free) or Pro-L 2 (has 30-day free trial).',
   },
   {
-    question: 'Is DropGain free?',
-    answer:
-      'Yes. It is open source under AGPL-3.0. No paid tier, no account, and no subscription.',
-  },
-  {
     question: 'How were loudness measurements validated during development?',
     answer:
       'LUFS and true-peak readouts were cross-checked against Youlean Loudness Meter 2 and iZotope Insight 2. Neither is required to run DropGain.',
@@ -53,9 +48,14 @@ const items = [
       'Default target band is <code>-7.8 to -7.5 LUFS</code> (loudest section), with Limiter-assisted as the default normalization mode. That matches how current EDM masters are typically already mastered, so your prep holds up next to material from other DJs when you play B2B or in a set, instead of sitting quieter. Lower the target band, switch to Clean gain, or tune everything via Library Tuning if your library or venue needs something quieter.',
   },
   {
+    question: 'Why is bass trim a thing?',
+    answer:
+      'LUFS measures perceived loudness using weighting that underweights the very lowest sub-bass. On a club or festival system, that low end can still hit hard in the room, so two tracks at the same LUFS target can land differently. Bass trim pulls gain back on bass-heavy outliers so loudness matching does not stack extra low end on top. It is optional and configurable in Preferences.',
+  },
+  {
     question: 'Why is this free and open source?',
     answer:
-      'I am lazy. Shipping and supporting a commercial product is work I do not want to take on. That said, open source is also the point: you can read and change how gain, ceilings, bass trim, and limiting are decided, and fork or patch behavior instead of trusting a black-box batch processor. Free and open source is not a claim that DropGain sounds better than commercial tools, it is a claim that the workflow is inspectable and yours to adapt. It also reaches the widest possible audience and helps me get recognition as a bedroom DJ and beginner developer, without a professional background in audio or software engineering.',
+      'DropGain is free under AGPL-3.0: no paid tier, account, or subscription. I am lazy. Shipping and supporting a commercial product would mean a much more complicated code stack than the Python DropGain is built on now, and that is more work than I want to take on. That said, open source is also the point: you can read and change how gain, ceilings, bass trim, and limiting are decided, and fork or patch behavior instead of trusting a black-box batch processor. Free and open source is not a claim that DropGain sounds better than commercial tools, it is a claim that the workflow is inspectable and yours to adapt. It also reaches the widest possible audience and helps me get recognition as a bedroom DJ, since I have no professional background in developing apps or working with audio, this is a hobby project I am learning from as I go.',
   },
 ];
 ---
