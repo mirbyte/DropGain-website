@@ -45,9 +45,15 @@ const features = [
 
 <section class="section" id="features">
   <div class="container">
-    <div class="section-header reveal">
+    <div class="section-header features-header reveal">
       <p class="section-label">Features</p>
       <h2>Your targets, your call</h2>
+      <p class="features-slogan">
+        The only automated loudness tool in the world that isn't stuck on presets.
+      </p>
+      <p class="features-slogan-support text-small text-muted">
+        No fixed S/M/I windows. Set your own analysis window, and DropGain reads sub-bass energy alongside LUFS.
+      </p>
       <p class="lead">
         LUFS band, ceiling, gain mode, analysis window, and output routing — exposed in Preferences,
         not hidden behind one-click presets.
@@ -116,6 +122,29 @@ const features = [
 </section>
 
 <style>
+  .features-header {
+    max-width: 52rem;
+  }
+
+  .features-header .features-slogan,
+  .features-header .features-slogan-support,
+  .features-header .lead {
+    text-wrap: pretty;
+  }
+
+  .features-slogan {
+    font-family: var(--font-mono);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    color: var(--accent);
+    margin: var(--space-4) 0 0;
+  }
+
+  .features-slogan-support {
+    margin: var(--space-2) 0 var(--space-4);
+  }
+
   .feature-card h3 {
     font-family: var(--font-sans);
     font-size: 1.0625rem;
