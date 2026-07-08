@@ -37,6 +37,26 @@ const items = [
     answer:
       'LUFS and true-peak readouts were cross-checked against Youlean Loudness Meter 2 and iZotope Insight 2. Neither is required to run DropGain.',
   },
+  {
+    question: 'Why use a limiter on already mastered tracks?',
+    answer:
+      'Once a track already touches the true-peak ceiling, straight gain cannot push its loudness any further without clipping, no matter how it was mastered. Limiter-assisted mode (FabFilter Pro-L 2 or LoudMax, selectable in Preferences) only steps in on those peaks, and only when a track needs it: a hot EDM master that already sits at your target rarely gets touched, it is the quieter masters in the library that need a limiter to catch up without clipping. Limiter-assisted is the default for that reason, but clean gain stays one click away whenever you would rather not touch peaks at all, and a dedicated peak-repair mode is planned for a future update.',
+  },
+  {
+    question: 'Are my tracks getting squashed?',
+    answer:
+      'Reduction is capped rather than driven as hard as the limiter allows, so it closes the gap to your ceiling instead of flattening everything above it. How much room that leaves is up to you: the target band, ceiling, and gain mode are all set in Preferences, and Library Tuning can recommend values instead of relying on the defaults. If a track still feels over-limited, lower the target band or limiter budget.',
+  },
+  {
+    question: 'Why are the defaults so loud?',
+    answer:
+      'Default target band is <code>-7.8 to -7.5 LUFS</code> (loudest section), with Limiter-assisted as the default normalization mode. That matches how current EDM masters are typically already mastered, so your prep holds up next to material from other DJs when you play B2B or in a set, instead of sitting quieter. Lower the target band, switch to Clean gain, or tune everything via Library Tuning if your library or venue needs something quieter.',
+  },
+  {
+    question: 'Why is this free and open source?',
+    answer:
+      'I am lazy. Shipping and supporting a commercial product is work I do not want to take on. That said, open source is also the point: you can read and change how gain, ceilings, bass trim, and limiting are decided, and fork or patch behavior instead of trusting a black-box batch processor. Free and open source is not a claim that DropGain sounds better than commercial tools, it is a claim that the workflow is inspectable and yours to adapt. It also reaches the widest possible audience and helps me get recognition as a bedroom DJ and beginner developer, without a professional background in audio or software engineering.',
+  },
 ];
 ---
 
