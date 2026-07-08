@@ -1,8 +1,8 @@
 import { defineConfig, passthroughImageService } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://mirbyte.github.io',
-  base: '/DropGain-website/',
+  site: 'https://dropgain.app',
+  base: '/',
   output: 'static',
   image: {
     service: passthroughImageService(),
