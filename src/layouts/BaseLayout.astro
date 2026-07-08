@@ -3,9 +3,11 @@ import '@fontsource-variable/space-grotesk';
 import '@fontsource-variable/cascadia-mono';
 
 const {
-  title = 'DropGain — loudness prep for DJs, work in progress',
-  description = 'Open-source, section-based loudness prep for DJ libraries. Work in progress on Windows — run from source, set your LUFS targets, review per-track analysis, and render _DG copies.',
+  title = 'DropGain — section-based LUFS prep for the drop, not the average',
+  description = 'Open-source loudness prep for DJ libraries. Find the loudest section of each track, set your LUFS target and true-peak ceiling, review per-track analysis, and render _DG copies without touching your originals.',
 } = Astro.props;
+
+const base = import.meta.env.BASE_URL;
 
 const siteUrl = Astro.site?.href ?? 'https://mirbyte.github.io';
 const baseUrl = new URL(import.meta.env.BASE_URL, siteUrl).href;
@@ -20,7 +22,11 @@ const ogImage = new URL('og-image.svg', baseUrl).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#1a1a1a" />
-    <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
+    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
+    <link rel="icon" type="image/png" sizes="48x48" href={`${base}favicon-48.png`} />
+    <link rel="icon" type="image/png" sizes="192x192" href={`${base}favicon-192.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />
