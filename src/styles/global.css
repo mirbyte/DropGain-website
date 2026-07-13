@@ -1,16 +1,32 @@
+@font-face {
+  font-family: "Karnivore Blue";
+  src: url("/fonts/KARNIVBL.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Orbitron";
+  src: url("/fonts/Orbitron-Variable.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   /* DropGain app palette (gui_theme.py) */
-  --bg-main: #1a1a1a;
-  --bg-card: #262626;
-  --bg-panel: #1e1e1e;
-  --bg-field: #141414;
-  --fg-main: #f0f0f0;
-  --fg-muted: #909090;
+  --bg-main: #181a1d;
+  --bg-card: #23272b;
+  --bg-panel: #1f2327;
+  --bg-field: #111315;
+  --fg-main: #f1f5f6;
+  --fg-muted: #929ba3;
   --accent: #b0dce8;
   --accent-hover: #8ec8d6;
   --accent-bright: #b0dce8;
   --accent-dim: #243338;
-  --border: #3e3e3e;
+  --border: #3b4249;
   --border-glass: rgb(176 220 232 / 12%);
   --success: #87d6a3;
   --warn: #d4b878;
@@ -21,7 +37,9 @@
   --glow-accent-sm: 0 0 20px rgb(176 220 232 / 12%);
   --shadow-deep: 0 24px 48px rgb(0 0 0 / 45%);
 
-  --font-sans: "Space Grotesk Variable", "Space Grotesk", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --font-brand: "Karnivore Blue", "Orbitron", sans-serif;
+  --font-ui: "Orbitron", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-mono: "Cascadia Mono Variable", "Cascadia Mono", Consolas, "Courier New", monospace;
 
   --space-1: 4px;
@@ -34,9 +52,9 @@
   --space-12: 48px;
   --space-16: 64px;
 
-  --radius-sm: 8px;
-  --radius-md: 14px;
-  --radius-lg: 16px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 6px;
   --max-width: 1120px;
 
   --reveal-y: 24px;
@@ -102,19 +120,19 @@ h2,
 h3 {
   line-height: 1.2;
   margin: 0 0 var(--space-4);
-  font-family: var(--font-sans);
+  font-family: var(--font-ui);
 }
 
 h1 {
   font-size: clamp(2rem, 5vw, 2.75rem);
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0.02em;
 }
 
 h2 {
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 600;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
 }
 
 h3 {
@@ -153,10 +171,10 @@ ul {
 
 .section-label {
   display: inline-block;
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-size: 0.6875rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--accent);
   margin-bottom: var(--space-3);
@@ -169,9 +187,10 @@ code {
 }
 
 .font-ui {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .lead {
@@ -185,11 +204,13 @@ code {
   justify-content: center;
   gap: var(--space-2);
   padding: 0.75rem 1.5rem;
-  font-family: inherit;
-  font-size: 0.9375rem;
+  font-family: var(--font-ui);
+  font-size: 0.8125rem;
   font-weight: 600;
   line-height: 1;
-  border-radius: var(--radius-md);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 0;
   border: 1px solid transparent;
   cursor: pointer;
   transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
@@ -209,7 +230,7 @@ code {
 }
 
 .btn-secondary {
-  background: rgb(255 255 255 / 4%);
+  background: #252a2f;
   color: var(--fg-main);
   border-color: var(--border);
   backdrop-filter: blur(8px);
@@ -229,15 +250,15 @@ code {
 }
 
 .glass {
-  background: rgb(38 38 38 / 72%);
-  border: 1px solid var(--border-glass);
+  background: rgb(35 39 43 / 72%);
+  border: 1px solid var(--border);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
 
 .glass-card {
-  background: rgb(38 38 38 / 65%);
-  border: 1px solid var(--border-glass);
+  background: rgb(35 39 43 / 65%);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: var(--space-6);
   backdrop-filter: blur(12px);
@@ -252,10 +273,16 @@ code {
 }
 
 .readout {
-  font-family: var(--font-mono);
+  font-family: var(--font-ui);
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.06em;
   font-weight: 500;
+}
+
+.font-brand {
+  font-family: var(--font-brand);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .card-grid {

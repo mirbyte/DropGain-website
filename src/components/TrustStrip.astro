@@ -16,10 +16,10 @@ const formats = ['WAV', 'AIFF', 'MP3', 'FLAC'];
 <style>
   .trust-strip {
     padding-block: var(--space-6);
-    border-block: 1px solid var(--border-glass);
+    border-block: 1px solid var(--border);
     background:
       radial-gradient(ellipse 80% 120% at 50% 50%, rgb(176 220 232 / 5%), transparent 60%),
-      rgb(255 255 255 / 2%);
+      var(--bg-panel);
   }
 
   .trust-strip-inner {
@@ -32,7 +32,7 @@ const formats = ['WAV', 'AIFF', 'MP3', 'FLAC'];
 
   .trust-kicker {
     margin: 0;
-    font-family: var(--font-mono);
+    font-family: var(--font-ui);
     font-size: 0.6875rem;
     font-weight: 500;
     letter-spacing: 0.1em;
@@ -53,9 +53,9 @@ const formats = ['WAV', 'AIFF', 'MP3', 'FLAC'];
     align-items: center;
     min-height: 2.125rem;
     padding: 0.5rem 0.875rem;
-    border: 1px solid var(--border-glass);
-    border-radius: 999px;
-    background: rgb(255 255 255 / 4%);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-card);
     color: var(--fg-main);
     font-size: 0.8125rem;
     font-weight: 600;
