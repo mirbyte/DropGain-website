@@ -2,7 +2,7 @@
 import { Image } from 'astro:assets';
 import uiLaunch from '../assets/screenshots/ui-launch.png';
 
-const repoUrl = 'https://github.com/mirbyte/DropGain';
+const downloadUrl = 'https://github.com/mirbyte/DropGain/releases/download/v0.1.0/DropGain-win64.zip';
 ---
 
 <section class="hero section" id="top">
@@ -21,8 +21,8 @@ const repoUrl = 'https://github.com/mirbyte/DropGain';
         Packaged Windows build available. Still in active development — try on a library copy first.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href={repoUrl} target="_blank" rel="noopener noreferrer">
-          View on GitHub
+        <a class="btn btn-primary" href={downloadUrl} target="_blank" rel="noopener noreferrer">
+          Download for Windows
         </a>
         <a class="btn btn-secondary" href="#setup">
           Setup guide
