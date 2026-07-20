@@ -1,16 +1,16 @@
 ---
 const limitations = [
   {
-    title: 'Source install only',
-    body: 'No Windows installer or packaged executable yet. Clone the repo, install dependencies, and run from source.',
+    title: 'Active development',
+    body: 'Bugs are still possible. Behavior, defaults, and edge cases will change. Always try on a copy of your library first.',
   },
   {
-    title: 'Active development',
-    body: 'Bugs are still possible. Test exports on copies of your library, not your only masters.',
+    title: 'Windows tested; long tracks',
+    body: 'Tested on Windows by the author. Analysis and render load each file fully into memory; tracks longer than about 10 minutes may hang, use high RAM, or crash.',
   },
   {
     title: 'Pro-L 2 or LoudMax for limiter mode',
-    body: 'Limiter-assisted processing requires either FabFilter Pro-L 2 (VST3) or LoudMax (free). Clean gain and full analysis work without it.',
+    body: 'Limiter-assisted processing requires either FabFilter Pro-L 2 (VST3) or LoudMax (free). Analysis and clean-gain render work without a limiter plugin.',
   },
   {
     title: 'UI still evolving',
@@ -25,8 +25,8 @@ const limitations = [
       <p class="section-label">Current limitations</p>
       <h2>What to expect right now</h2>
       <p class="lead">
-        DropGain is a work in progress — useful if you want section-based loudness prep and can run a Python app from source.
-        Not ready for casual install-and-go use yet.
+        DropGain is a work in progress. A packaged Windows build is available; macOS and Linux may work from source but are untested.
+        Validate results on a library copy before trusting a full batch.
       </p>
     </div>
     <div class="card-grid card-grid-2">

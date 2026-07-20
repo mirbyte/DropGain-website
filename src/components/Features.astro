@@ -17,12 +17,12 @@ const features = [
   },
   {
     title: 'Library analysis',
-    body: 'Recursive scan with per-track LUFS, dBTP, suggested gain, limiter estimate, and render eligibility.',
+    body: 'Recursive scan with programme and section LUFS, dBTP, sample peak, suggested gain, projections, and processing action per row.',
     icon: 'analyze',
   },
   {
     title: '_DG outputs',
-    body: 'Non-destructive copies beside sources or under a separate root. All metadata is preserved, whether keeping the original format or forcing AIFF/MP3.',
+    body: 'Non-destructive copies beside sources or under a separate root. Preserve format, force AIFF/MP3, or decode MP3 to AIFF. Loudness-normalization tags are stripped; other metadata is kept.',
     icon: 'output',
   },
   {
@@ -37,7 +37,7 @@ const features = [
   },
   {
     title: 'Bass-aware trim',
-    body: 'Reduces gain on bass-heavy tracks. Configurable in Preferences.',
+    body: 'On bass-heavy sections, low-band energy can reduce a boost or deepen a cut slightly. Configurable in Preferences.',
     icon: 'bass',
   },
 ];

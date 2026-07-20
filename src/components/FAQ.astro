@@ -10,7 +10,7 @@ const items = [
   {
     question: 'How is this different from auto-gain in my DJ software?',
     answer:
-      'DJ auto-gain normalizes per track at playback time and can fight levels you set in prep. DropGain bakes levels into <code>_DG</code> files using section-based LUFS. Disable playback auto-gain when loading <code>_DG</code> exports in Rekordbox, Serato, TRAKTOR, VirtualDJ, and similar software.',
+      'DJ auto-gain is a playback-time trim from library analysis. It does not rewrite audio. DropGain bakes section-based levels into <code>_DG</code> files you can load outside that app\'s database. Disable playback auto-gain when loading <code>_DG</code> exports in Rekordbox, Serato, TRAKTOR, VirtualDJ, and similar software. Engine DJ standalone players generally have no auto-gain on playback.',
   },
   {
     question: 'Do I still need to use my gain knobs?',
@@ -25,7 +25,12 @@ const items = [
   {
     question: 'Do I need FabFilter Pro-L 2 or LoudMax installed?',
     answer:
-      'Only for limiter-assisted mode. Clean gain, full library analysis, and the review table work without it. You can use either LoudMax (free) or Pro-L 2 (has 30-day free trial).',
+      'Only for limiter-assisted mode. Clean gain, full library analysis, and the review table work without it. You can use either LoudMax (free) or Pro-L 2 (has 30-day free trial). On the packaged Windows build, drop LoudMax into <code>plugins/</code> next to the exe, or use a system VST3 folder.',
+  },
+  {
+    question: 'Can I process long tracks?',
+    answer:
+      'Analysis and rendering currently load each file fully into memory. Tracks longer than about 10 minutes may cause high RAM use, long hangs, or crashes, especially with multiple analysis workers or batch render plus verification. Split long material first, or lower Analysis workers in Preferences.',
   },
   {
     question: 'How were loudness measurements validated during development?',

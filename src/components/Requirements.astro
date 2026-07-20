@@ -1,19 +1,26 @@
 ---
-const djSetup = [
-  { name: 'Windows', note: 'Tested by the author. macOS/Linux may work but are untested.' },
-  { name: 'FFmpeg / ffprobe', note: 'Must be on PATH for analysis and render.' },
+const packagedSetup = [
+  { name: 'Windows build', note: 'Run DropGain.exe from the packaged release folder (release/DropGain/ via python build.py, or a published release).' },
+  {
+    name: 'FFmpeg / ffprobe',
+    note: 'Shipped in the app bin/ folder — no PATH install required for the packaged build.',
+  },
   {
     name: 'FabFilter Pro-L 2 (VST3) or LoudMax',
-    note: 'Only for limiter-assisted mode. LoudMax is free; Pro-L 2 has a 30-day free trial. Clean gain and full library analysis work without it.',
+    note: 'Only for limiter-assisted mode. Drop LoudMax into plugins/ next to the exe (or use a system VST3 folder), or install Pro-L 2. Analysis and clean-gain render work without a limiter.',
   },
 ];
 
-const devSetup = [
+const sourceSetup = [
   { name: 'Python 3', note: 'customtkinter, numpy, scipy, pyloudnorm, mutagen, pedalboard, Pillow' },
-  { name: 'Clone and run', note: 'Launch main.pyw from the app repo after installing dependencies.' },
+  {
+    name: 'FFmpeg / ffprobe',
+    note: 'On PATH, or in a bin/ folder next to the app (same layout as the packaged build).',
+  },
+  { name: 'Clone and run', note: 'pip install -r requirements.txt, then launch main.pyw.' },
   {
     name: 'Validate in Preferences',
-    note: 'Check Pro-L 2 / LoudMax detection and system dependencies before batch render.',
+    note: 'Check Limiter / System before batch render (limiter engine detection and toolchain).',
   },
 ];
 ---
@@ -22,17 +29,18 @@ const devSetup = [
   <div class="container">
     <div class="section-header reveal">
       <p class="section-label">Setup</p>
-      <h2>Run from source</h2>
+      <h2>Packaged Windows build or from source</h2>
       <p class="lead">
-        No installer yet — follow the repo README for dependency install, then launch <code>main.pyw</code> and validate your setup in Preferences before rendering.
+        Prefer the packaged build on Windows. FFmpeg ships with the exe; limiter-assisted mode still needs a VST3.
+        From-source install works the same once dependencies are on PATH or in <code>bin/</code>.
       </p>
     </div>
     <div class="card-grid card-grid-2">
       <article class="glass-card reveal">
-        <h3>What you need</h3>
+        <h3>Packaged build</h3>
         <ul class="req-list">
           {
-            djSetup.map((item) => (
+            packagedSetup.map((item) => (
               <li>
                 <strong>{item.name}</strong>
                 <span>{item.note}</span>
@@ -42,10 +50,10 @@ const devSetup = [
         </ul>
       </article>
       <article class="glass-card reveal">
-        <h3>Developer setup</h3>
+        <h3>From source</h3>
         <ul class="req-list">
           {
-            devSetup.map((item) => (
+            sourceSetup.map((item) => (
               <li>
                 <strong>{item.name}</strong>
                 <span>{item.note}</span>
@@ -59,8 +67,9 @@ const devSetup = [
     <div class="callout-warn setup-callout reveal" role="note">
       <p class="callout-warn-title">Disable playback auto gain before loading <code>_DG</code> exports</p>
       <p class="callout-warn-body">
-        This is required in Rekordbox, Serato, TRAKTOR, VirtualDJ, and similar software.
-        Auto gain will fight the levels DropGain applied and make your prep unreliable in the booth.
+        Required in Rekordbox, Serato, TRAKTOR, VirtualDJ, and similar software.
+        Auto gain will fight the levels DropGain baked in.
+        Engine DJ standalone players generally have no playback auto gain, so pre-leveled <code>_DG</code> files are usually fine there.
       </p>
     </div>
   </div>
