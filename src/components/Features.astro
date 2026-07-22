@@ -51,12 +51,12 @@ const features = [
       <p class="features-slogan">
         The only automated loudness tool in the world that isn't stuck on presets.
       </p>
-      <p class="features-slogan-support text-small text-muted">
-        No fixed S/M/I windows. Set your own analysis window, and DropGain reads sub-bass energy alongside LUFS.
-      </p>
       <p class="lead">
-        LUFS band, ceiling, gain mode, analysis window, and output routing — exposed in Preferences,
-        not hidden behind one-click presets.
+        Set your own analysis window, LUFS band, ceiling, gain mode, and output routing.
+        No fixed S/M/I windows, and sub-bass energy is read alongside LUFS.
+      </p>
+      <p class="features-validation">
+        LUFS / true-peak checked against Youlean Loudness Meter 2 and iZotope Insight 2.
       </p>
     </div>
     <div class="card-grid card-grid-2">
@@ -123,12 +123,12 @@ const features = [
 
 <style>
   .features-header {
-    max-width: 52rem;
+    max-width: 40rem;
   }
 
   .features-header .features-slogan,
-  .features-header .features-slogan-support,
-  .features-header .lead {
+  .features-header .lead,
+  .features-header .features-validation {
     text-wrap: pretty;
   }
 
@@ -141,8 +141,19 @@ const features = [
     margin: var(--space-4) 0 0;
   }
 
-  .features-slogan-support {
-    margin: var(--space-2) 0 var(--space-4);
+  .features-header .lead {
+    margin: var(--space-3) 0 0;
+  }
+
+  .features-validation {
+    margin: var(--space-5) 0 0;
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--border);
+    font-family: var(--font-ui);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    color: var(--fg-muted);
   }
 
   .feature-card h3 {
