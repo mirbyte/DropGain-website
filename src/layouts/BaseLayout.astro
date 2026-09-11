@@ -1,5 +1,7 @@
 ---
 import '@fontsource-variable/cascadia-mono';
+import iconIco from '../assets/icon.ico?url';
+import iconPng from '../assets/icon.png?url';
 
 const {
   title = 'DropGain — LUFS prep for the drop, not the average',
@@ -7,8 +9,6 @@ const {
   ogTitle = title,
   siteName = 'DropGain',
 } = Astro.props;
-
-const base = import.meta.env.BASE_URL;
 
 const siteUrl = Astro.site?.href ?? 'https://mirbyte.github.io';
 const baseUrl = new URL(import.meta.env.BASE_URL, siteUrl).href;
@@ -23,11 +23,9 @@ const ogImage = new URL('og-image.svg', baseUrl).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#181a1d" />
-    <link rel="icon" href={`${base}favicon.ico`} sizes="48x48" />
-    <link rel="icon" type="image/png" sizes="48x48" href={`${base}favicon-48.png`} />
-    <link rel="icon" type="image/png" sizes="192x192" href={`${base}favicon-192.png`} />
-    <link rel="apple-touch-icon" sizes="180x180" href={`${base}apple-touch-icon.png`} />
-    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <link rel="icon" type="image/x-icon" href={iconIco} />
+    <link rel="icon" type="image/png" href={iconPng} />
+    <link rel="apple-touch-icon" type="image/png" href={iconPng} />
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />
