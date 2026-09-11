@@ -3,12 +3,13 @@ import { Image } from 'astro:assets';
 import uiLaunch from '../assets/screenshots/ui-launch.png';
 
 const downloadUrl = 'https://github.com/mirbyte/DropGain/releases/latest/download/DropGain-win64.zip';
+const repoUrl = 'https://github.com/mirbyte/DropGain';
 ---
 
 <section class="hero section" id="top">
   <div class="container hero-grid">
     <div class="hero-copy reveal">
-      <p class="section-label font-ui">Open source · Windows</p>
+      <p class="section-label font-ui">Open source · Windows build · macOS source</p>
       <h1>
         Loudness prep for the <span class="hero-accent">drop</span>, not the average.
       </h1>
@@ -23,6 +24,9 @@ const downloadUrl = 'https://github.com/mirbyte/DropGain/releases/latest/downloa
       <div class="hero-actions">
         <a class="btn btn-primary" href={downloadUrl} target="_blank" rel="noopener noreferrer">
           Download for Windows
+        </a>
+        <a class="btn btn-secondary" href={repoUrl} target="_blank" rel="noopener noreferrer">
+          macOS source
         </a>
         <a class="btn btn-secondary" href="#setup">
           Setup guide
