@@ -1,7 +1,6 @@
 ---
 import '@fontsource-variable/cascadia-mono';
-import iconIco from '../assets/icon.ico?url';
-import iconPng from '../assets/icon.png?url';
+import '@fontsource-variable/exo-2';
 
 const {
   title = 'DropGain — LUFS prep for the drop, not the average',
@@ -23,9 +22,11 @@ const ogImage = new URL('og-image.svg', baseUrl).href;
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#181a1d" />
-    <link rel="icon" type="image/x-icon" href={iconIco} />
-    <link rel="icon" type="image/png" href={iconPng} />
-    <link rel="apple-touch-icon" type="image/png" href={iconPng} />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="canonical" href={canonical} />
 
     <meta property="og:type" content="website" />
