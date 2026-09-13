@@ -312,6 +312,10 @@ code {
   font-size: 0.875rem;
 }
 
+.text-keep-case {
+  text-transform: none;
+}
+
 .callout-warn {
   padding: var(--space-4) var(--space-6);
   border-radius: var(--radius-md);
