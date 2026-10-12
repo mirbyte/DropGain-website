@@ -27,7 +27,7 @@ const features = [
   },
   {
     title: 'Library Tuning',
-    body: 'Profile your library and get recommended targets, window/hop, thresholds, and ceiling settings.',
+    body: 'Profile your library and get a recommended loudness target from its loudest-section distribution and peak headroom.',
     icon: 'tune',
   },
   {
@@ -36,8 +36,8 @@ const features = [
     icon: 'verify',
   },
   {
-    title: 'Bass-aware trim',
-    body: 'On bass-heavy sections, low-band energy can reduce a boost or deepen a cut slightly. Configurable in Preferences.',
+    title: 'Bass-aware treatment',
+    body: 'Measure 30-100 Hz energy in the loudest LUFS window, then apply a configurable level trim or low-end EQ cut across the file.',
     icon: 'bass',
   },
 ];
@@ -52,8 +52,7 @@ const features = [
         The only automated loudness tool in the world that isn't stuck on presets.
       </p>
       <p class="lead">
-        Set your own analysis window, LUFS band, ceiling, gain mode, and output routing.
-        No fixed S/M/I windows, and sub-bass energy is read alongside LUFS.
+        Set your own analysis window, LUFS band, ceiling, gain mode, bass treatment, and output routing.
       </p>
       <p class="features-validation">
         LUFS / true-peak checked against Youlean Loudness Meter 2 and iZotope Insight 2.
